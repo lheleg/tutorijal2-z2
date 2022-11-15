@@ -9,8 +9,36 @@ public class Osoba {
         ime = new String(i);
         prezime = new String(p);
     }
+
+    public String getIme() {
+        return ime;
+    }
+
+    public void setIme(String ime) {
+        this.ime = ime;
+    }
+
+    public String getPrezime() {
+        return prezime;
+    }
+
+    public void setPrezime(String prezime) {
+        this.prezime = prezime;
+    }
     @Override
     public String toString() {
-        return ime+" "+prezime;
+        return "Osoba{" +
+                "ime='" + ime + '\'' +
+                ", prezime='" + prezime + '\'' +
+                '}';
     }
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
 }

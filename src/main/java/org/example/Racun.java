@@ -2,6 +2,11 @@ package org.example;
 
 public class Racun {
 
+    private long brojRacuna;
+    private Osoba korisnikRacuna;
+    private boolean odobrenjePrekoracenja;
+    private double stanjeRacuna;
+    private double prekoracenje;
     /**
      * basic constructor
      * */
@@ -10,13 +15,58 @@ public class Racun {
         korisnikRacuna = o;
     }
 
-    private boolean provjeriOdobrenjePrekoracenja() {
+    private boolean provjeriOdobrenjePrekoracenja(double iznos) {
+        return this.prekoracenje > iznos;
+    }
+
+    public boolean izvrisiUplatu(double iznos){
+        this.stanjeRacuna += iznos;
+        return true;
+    }
+
+    public boolean izvrsiIsplatu(double iznos){
+        if(iznos > this.stanjeRacuna) return false;
+        this.stanjeRacuna -= iznos;
+        return true;
+    }
+
+    public long getBrojRacuna() {
+        return brojRacuna;
+    }
+
+    public void setBrojRacuna(long brojRacuna) {
+        this.brojRacuna = brojRacuna;
+    }
+
+    public Osoba getKorisnikRacuna() {
+        return korisnikRacuna;
+    }
+
+    public void setKorisnikRacuna(Osoba korisnikRacuna) {
+        this.korisnikRacuna = korisnikRacuna;
+    }
+
+    public boolean isOdobrenjePrekoracenja() {
         return odobrenjePrekoracenja;
     }
-    public boolean izvrisiUplatu(){return true;};
-    public boolean izvrdiIsplatu(){return true;};
-    protected long brojRacuna;
-    protected Osoba korisnikRacuna;
-    protected boolean odobrenjePrekoracenja;
-    protected double stanjeRacuna;
+
+    public void setOdobrenjePrekoracenja(boolean odobrenjePrekoracenja) {
+        this.odobrenjePrekoracenja = odobrenjePrekoracenja;
+    }
+
+    public double getStanjeRacuna() {
+        return stanjeRacuna;
+    }
+
+    public void setStanjeRacuna(double stanjeRacuna) {
+        this.stanjeRacuna = stanjeRacuna;
+    }
+
+    public double getPrekoracenje() {
+        return prekoracenje;
+    }
+
+    public void setPrekoracenje(double prekoracenje) {
+        this.prekoracenje = prekoracenje;
+    }
 }

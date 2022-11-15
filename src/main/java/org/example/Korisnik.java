@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Korisnik extends Osoba {
 
     private Racun racun;
@@ -12,8 +14,23 @@ public class Korisnik extends Osoba {
     /**
      * adds new account
      * */
-    protected void dodajRacun(Racun racun) {
+    public void dodajRacun(Racun racun) {
         this.racun = racun;
     }
 
+    public Racun getRacun() {
+        return racun;
+    }
+
+    public void setRacun(Racun racun) {
+        this.racun = racun;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Korisnik korisnik = (Korisnik) obj;
+        return Objects.equals(racun, korisnik.racun);
+    }
 }
